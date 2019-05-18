@@ -1,28 +1,30 @@
 # delta2d plotter kinematics
 # Bill Ola Rasmussen
-# version 0.2
+# version 0.3
 
 # diagram:
 # 
-#   |                |
-#  ↑|                |
-#  ↓|\               |↑
-#   |  \ A          /|↓
-#   |    \      B /  |
-#   |      \    /    |
-#   |        \/      |
-#   |       /        |
-#   |     /          |
-#   |   (x,y)        |
-#   |                |
+#   ‖                ‖
+#  ↑‖a               ‖
+#  ↓‖\              b‖↑
+#   ‖  \ A          /‖↓
+#   ‖    \      B /  ‖
+#   ‖      \    /    ‖
+#   ‖        \/      ‖
+#   ‖       /        ‖
+#   ‖     /          ‖
+#   ‖   (x,y)        ‖
+#   ‖                ‖
 # (0,0)            (w,0)
 #
 # legend:
 #
-# | = rail
+# ‖ = rail
 # \ = A arm
 # / = B arm
-# ↑↓ = arm upper tip travels up and down rail
+# ↑↓ = each arm upper tip travels up and down rail
+# a = A arm upper tip rides on rail at (0,a)
+# b = B arm upper tip rides on rail at (w,b)
 # (x,y) = resulting position of lower arm tip
 
 
