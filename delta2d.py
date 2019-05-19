@@ -33,6 +33,8 @@ import math
 
 def circle_intersect(x1,y1,r1,x2,y2,r2):
 	'calculate intersection of circles, return lowest point of intersection'
+	# see: http://www.ambrsoft.com/TrigoCalc/Circles2/circle2intersection/CircleCircleIntersection.htm
+
 	dx = x2 - x1	# distance between circle centers on the x axis
 	dy = y2 - y1	# distance between circle centers on the y axis
 	ds = math.sqrt(dx ** 2 + dy ** 2)	# distance between circle centers
