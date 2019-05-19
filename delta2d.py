@@ -20,6 +20,7 @@
 # legend:
 #
 # ‖ = rail
+# w = width between rails
 # \ = A arm
 # / = B arm
 # ↑↓ = each arm upper tip travels up and down rail
@@ -35,10 +36,15 @@ class Delta2d:
 		:param float b_len: length of B arm (includes b_tip_len)
 		:param float b_tip_len: length from A,B hinge and lower B tip
 		:param float width: width between rails'''
-		pass
+		self.a_len = a_len
+		self.b_len = b_len
+		self.b_tip_len = b_tip_len
+		self.width = width
+
 	def ab(self,x,y):
 		'inverse kinematics: given a (x,y) position, calculated the required a and b positions'
 		pass
+
 	def xy(self,a,b):
 		'forward kinematics: given a and b positions, calculated the resulting (x,y) position'
 		pass
