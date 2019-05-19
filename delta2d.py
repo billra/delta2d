@@ -31,6 +31,10 @@
 
 import math
 
+def dx(x1,y1,x2,y2):
+	'distance formula'
+	return math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2)
+
 class Delta2d:
 	'kinematics for delta2d plotter'
 	def __init__(self, A_len, B_len, B_tip_len, width):
@@ -41,7 +45,8 @@ class Delta2d:
 		:param float width: width between rails'''
 		self.A_len = A_len
 		self.B_len = B_len
-		self.B_tip_amt = B_tip_len / B_len # amount of B length used for tip
+		self.B_tip_pct = B_tip_len / B_len # percent of B length used for tip
+		self.B_nontip_len = B_len - B_tip_len
 		self.width = width
 
 	def ab(self,x,y):
@@ -49,15 +54,15 @@ class Delta2d:
 		B_width = self.width - x # width of rectangle containing arm B
 		B_height = math.sqrt(self.B_len ** 2 - B_width ** 2) # height of rectangle containing arm B, using Pythagorean theorem
 		b = B_height + y # B arm upper tip at (w,b)
-		ix = B_width * self.B_tip_amt + x # ix == A_width, width of rectangle containing arm A
-		iy = B_height * self.B_tip_amt + y
+		ix = B_width * self.B_tip_pct + x # ix == A_width, width of rectangle containing arm A
+		iy = B_height * self.B_tip_pct + y
 		A_height = math.sqrt(self.A_len ** 2 - ix ** 2) # height of rectangle containing arm A, using Pythagorean theorem
 		a = A_height + iy # A arm upper tip at (0,a)
 		return a,b
 
 	def xy(self,a,b):
 		'forward kinematics: given a and b positions, calculated the resulting (x,y) position'
-		pass
+		return 0,0
 
 def main():
 	print('creating delta2d object...')
@@ -71,6 +76,12 @@ def main():
 
 	x,y=2,2 # desired x,y coordinates
 	print("use ab{0} to get xy{1}".format(plotter.ab(x,y),(x,y)))
+
+	a,b=12.471779788708135,6.358898943540674 # given rail coordinates, find xy coordinates
+	print("from ab{0} get xy{1}".format((a,b),plotter.xy(a,b)))
+
+	a,b=12.527740801146882,7.267826876426369 # given rail coordinates, find xy coordinates
+	print("from ab{0} get xy{1}".format((a,b),plotter.xy(a,b)))
 
 	print('done.')
 
